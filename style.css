@@ -1,0 +1,87 @@
+body{
+
+    margin:0;
+
+    font-family:Yu Gothic, sans-serif;
+
+    background:#eeeeee;
+
+}
+
+header{
+
+    background:#003366;
+
+    color:white;
+
+    text-align:center;
+
+    padding:20px;
+
+}
+
+nav{
+
+    margin-top:15px;
+
+}
+
+nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+    margin:15px;
+
+    font-weight:bold;
+
+}
+
+main{
+
+    width:900px;
+
+    margin:30px auto;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:10px;
+
+}
+
+img{
+
+    width:100%;
+
+    max-width:700px;
+
+    display:block;
+
+    margin:auto;
+
+    border-radius:10px;
+
+}
+
+h2{
+
+    color:#003366;
+
+}
+
+footer{
+
+    background:#003366;
+
+    color:white;
+
+    text-align:center;
+
+    padding:15px;
+
+    margin-top:30px;
+
+}
