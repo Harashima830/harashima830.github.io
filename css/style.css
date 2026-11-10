@@ -1,11 +1,14 @@
-body{
+body {
+    background:
+        linear-gradient(
+            rgba(0, 20, 40, 0.55),
+            rgba(0, 20, 40, 0.55)
+        ),
+        url("images/background.jpg");
 
-    margin:0;
-
-    font-family:Yu Gothic, sans-serif;
-
-    background:#eeeeee;
-
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 header {
