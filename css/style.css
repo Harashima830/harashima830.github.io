@@ -1,16 +1,16 @@
 
-/* =================================
+/* ==========================================
    1. サイト全体の基本設定
-================================= */
+========================================== */
 
 :root {
     --main-color: #003366;
-    --accent-color: #2878b5;
+    --sub-color: #0b5b91;
+    --accent-color: #28a4d8;
     --text-color: #333333;
-    --background-color: #ffffff;
+    --background-color: #edf3f8;
 }
 
-/* すべての要素のサイズ計算を統一 */
 * {
     box-sizing: border-box;
 }
@@ -21,55 +21,91 @@ html {
 
 body {
     margin: 0;
-    color: var(--text-color);
+    padding: 0;
+
     font-family:
         "Yu Gothic",
         "Meiryo",
         sans-serif;
+
+    color: var(--text-color);
+    background-color: var(--background-color);
+
     line-height: 1.8;
 
-    background-image: url("images/background.jpg");
+    /* 背景画像 */
+    background-image:
+        linear-gradient(
+            rgba(235, 244, 252, 0.75),
+            rgba(235, 244, 252, 0.75)
+        ),
+        url("images/background.jpg");
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+
+    overflow-x: hidden;
 }
 
 
-/* =================================
+/* ==========================================
    2. ヘッダー
-================================= */
+========================================== */
 
 header {
-    background-image: url("images/nao hp1.jpg");
+    width: 100%;
+    min-height: 280px;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 30, 70, 0.35),
+            rgba(0, 30, 70, 0.35)
+        ),
+        url("images/nao hp1.jpg");
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
-    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     text-align: center;
+    color: white;
 
-    padding: 70px 20px;
-
-    /* 文字を読みやすくする */
-    text-shadow: 2px 2px 5px #000000;
+    padding: 45px 20px;
 }
 
 header h1 {
-    font-size: clamp(28px, 5vw, 48px);
     margin: 0;
+
+    font-size: clamp(28px, 5vw, 46px);
+    font-weight: bold;
+
+    color: white;
+
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
 }
 
 header p {
     font-size: 16px;
+    margin-top: 10px;
+
+    text-shadow: 1px 1px 4px black;
 }
 
 
-/* =================================
+/* ==========================================
    3. ナビゲーション
-================================= */
+========================================== */
 
 nav {
+    width: 100%;
+
     background: var(--main-color);
 
     display: flex;
@@ -77,70 +113,104 @@ nav {
     align-items: center;
     flex-wrap: wrap;
 
-    padding: 12px;
-    gap: 10px;
+    gap: 5px;
+    padding: 10px 15px;
+
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
 }
 
 nav a {
+    display: inline-block;
+
     color: white;
     text-decoration: none;
+
+    font-size: 15px;
     font-weight: bold;
 
     padding: 10px 18px;
+
     border-radius: 6px;
 
-    transition: 0.3s;
+    transition:
+        background-color 0.25s,
+        transform 0.25s;
 }
 
-/* マウスを乗せたとき */
 nav a:hover {
-    background: var(--accent-color);
-    color: white;
+    background-color: var(--accent-color);
+
+    transform: translateY(-2px);
 }
 
 
-/* =================================
+/* ==========================================
    4. メインコンテンツ
-================================= */
+========================================== */
 
 main {
-    width: 90%;
-    max-width: 1000px;
+    width: 92%;
+    max-width: 1100px;
 
-    margin: 40px auto;
+    margin: 35px auto;
     padding: 35px;
 
-    background: rgba(255, 255, 255, 0.96);
+    background-color: rgba(255,255,255,0.97);
 
-    border-radius: 12px;
+    border-radius: 14px;
 
     box-shadow:
-        0 4px 20px rgba(0, 0, 0, 0.15);
+        0 5px 25px rgba(0,0,0,0.12);
 }
 
 
-/* =================================
+/* ==========================================
    5. 見出し
-================================= */
+========================================== */
+
+h1, h2, h3 {
+    line-height: 1.4;
+}
 
 h2 {
     color: var(--main-color);
 
+    font-size: 26px;
+
     border-left: 6px solid var(--accent-color);
+
     padding-left: 15px;
 
-    margin-top: 35px;
+    margin-top: 40px;
     margin-bottom: 20px;
 }
 
 h3 {
-    color: var(--accent-color);
+    color: var(--sub-color);
+
+    font-size: 20px;
+
+    margin-top: 25px;
 }
 
 
-/* =================================
-   6. 画像
-================================= */
+/* ==========================================
+   6. 本文
+========================================== */
+
+p {
+    margin-top: 12px;
+    margin-bottom: 18px;
+}
+
+section {
+    margin-bottom: 35px;
+}
+
+
+/* ==========================================
+   7. 画像
+========================================== */
 
 img {
     display: block;
@@ -153,43 +223,61 @@ img {
     border-radius: 10px;
 }
 
-/* 画像にマウスを乗せたとき */
+/* メイン画像用 */
+.hero-image {
+    width: 100%;
+    max-height: 420px;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+/* 画像のマウスオーバー */
 img:hover {
-    opacity: 0.95;
+    opacity: 0.96;
+    transition: opacity 0.3s;
 }
 
 
-/* =================================
-   7. リンク
-================================= */
+/* ==========================================
+   8. リンク
+========================================== */
 
 a {
-    color: var(--accent-color);
+    color: var(--sub-color);
+    transition: 0.2s;
 }
 
 a:hover {
-    opacity: 0.8;
+    color: var(--accent-color);
 }
 
 
-/* =================================
-   8. フッター
-================================= */
+/* ==========================================
+   9. フッター
+========================================== */
 
 footer {
-    background: var(--main-color);
-    color: white;
+    width: 100%;
 
+    background-color: var(--main-color);
+
+    color: white;
     text-align: center;
 
     padding: 25px 15px;
+
     margin-top: 40px;
 }
 
+footer p {
+    margin: 5px;
+}
 
-/* =================================
-   9. スマートフォン対応
-================================= */
+
+/* ==========================================
+   10. スマートフォン対応
+========================================== */
 
 @media (max-width: 600px) {
 
@@ -198,26 +286,37 @@ footer {
     }
 
     header {
-        padding: 45px 15px;
+        min-height: 200px;
+        padding: 35px 15px;
     }
 
     nav {
-        gap: 5px;
+        gap: 3px;
+        padding: 8px;
     }
 
     nav a {
+        font-size: 13px;
         padding: 8px 10px;
-        font-size: 14px;
     }
 
     main {
         width: 94%;
-        padding: 20px;
+        padding: 20px 16px;
         margin: 20px auto;
     }
 
     h2 {
         font-size: 21px;
+        margin-top: 30px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    .hero-image {
+        max-height: 250px;
     }
 
 }
