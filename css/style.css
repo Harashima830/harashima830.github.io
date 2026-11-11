@@ -1,83 +1,223 @@
-body {
-    background-image: url("images/background.jpg");
 
+/* =================================
+   1. サイト全体の基本設定
+================================= */
+
+:root {
+    --main-color: #003366;
+    --accent-color: #2878b5;
+    --text-color: #333333;
+    --background-color: #ffffff;
+}
+
+/* すべての要素のサイズ計算を統一 */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    color: var(--text-color);
+    font-family:
+        "Yu Gothic",
+        "Meiryo",
+        sans-serif;
+    line-height: 1.8;
+
+    background-image: url("images/background.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
+
+/* =================================
+   2. ヘッダー
+================================= */
+
 header {
-    background-image: url("images/nao hp1.jpn");
+    background-image: url("images/nao hp1.jpg");
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
 
     color: white;
-    padding: 50px;
+    text-align: center;
+
+    padding: 70px 20px;
+
+    /* 文字を読みやすくする */
+    text-shadow: 2px 2px 5px #000000;
 }
 
-nav{
-
-    margin-top:15px;
-
+header h1 {
+    font-size: clamp(28px, 5vw, 48px);
+    margin: 0;
 }
 
-nav a{
-
-    color:white;
-
-    text-decoration:none;
-
-    margin:15px;
-
-    font-weight:bold;
-
+header p {
+    font-size: 16px;
 }
 
-main{
 
-    width:900px;
+/* =================================
+   3. ナビゲーション
+================================= */
 
-    margin:30px auto;
+nav {
+    background: var(--main-color);
 
-    background:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 
-    padding:30px;
-
-    border-radius:10px;
-
+    padding: 12px;
+    gap: 10px;
 }
 
-img{
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
 
-    width:100%;
+    padding: 10px 18px;
+    border-radius: 6px;
 
-    max-width:700px;
-
-    display:block;
-
-    margin:auto;
-
-    border-radius:10px;
-
+    transition: 0.3s;
 }
 
-h2{
-
-    color:#003366;
-
+/* マウスを乗せたとき */
+nav a:hover {
+    background: var(--accent-color);
+    color: white;
 }
 
-footer{
 
-    background:#003366;
+/* =================================
+   4. メインコンテンツ
+================================= */
 
-    color:white;
+main {
+    width: 90%;
+    max-width: 1000px;
 
-    text-align:center;
+    margin: 40px auto;
+    padding: 35px;
 
-    padding:15px;
+    background: rgba(255, 255, 255, 0.96);
 
-    margin-top:30px;
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =================================
+   5. 見出し
+================================= */
+
+h2 {
+    color: var(--main-color);
+
+    border-left: 6px solid var(--accent-color);
+    padding-left: 15px;
+
+    margin-top: 35px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: var(--accent-color);
+}
+
+
+/* =================================
+   6. 画像
+================================= */
+
+img {
+    display: block;
+
+    max-width: 100%;
+    height: auto;
+
+    margin: 20px auto;
+
+    border-radius: 10px;
+}
+
+/* 画像にマウスを乗せたとき */
+img:hover {
+    opacity: 0.95;
+}
+
+
+/* =================================
+   7. リンク
+================================= */
+
+a {
+    color: var(--accent-color);
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+
+/* =================================
+   8. フッター
+================================= */
+
+footer {
+    background: var(--main-color);
+    color: white;
+
+    text-align: center;
+
+    padding: 25px 15px;
+    margin-top: 40px;
+}
+
+
+/* =================================
+   9. スマートフォン対応
+================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        background-attachment: scroll;
+    }
+
+    header {
+        padding: 45px 15px;
+    }
+
+    nav {
+        gap: 5px;
+    }
+
+    nav a {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    main {
+        width: 94%;
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    h2 {
+        font-size: 21px;
+    }
 
 }
