@@ -414,4 +414,18 @@ footer a:visited {
     }
 
 }
+/* ホームページの紹介画像 */
 
+.welcome-image {
+    display: block;
+
+    width: 100%;
+    max-height: 350px;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 12px;
+
+    margin: 20px auto 30px;
+}
