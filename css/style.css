@@ -1,6 +1,6 @@
 
 /* ==========================================
-   1. サイト全体の基本設定
+   1. 基本設定
 ========================================== */
 
 :root {
@@ -9,9 +9,12 @@
     --accent-color: #28a4d8;
     --text-color: #333333;
     --background-color: #edf3f8;
+    --white: #ffffff;
 }
 
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -30,23 +33,22 @@ body {
 
     color: var(--text-color);
     background-color: var(--background-color);
-
     line-height: 1.8;
 
-    /* 背景画像 */
+    /* 背景画像はcssフォルダの一つ上から参照 */
     background-image:
         linear-gradient(
-            rgba(235, 244, 252, 0.75),
-            rgba(235, 244, 252, 0.75)
+            rgba(235, 244, 252, 0.85),
+            rgba(235, 244, 252, 0.85)
         ),
-        url("images/background.jpg");
+        url("../images/nao hp2.jpg");
 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 
-    overflow-x: hidden;
+    overflow-wrap: anywhere;
 }
 
 
@@ -60,10 +62,10 @@ header {
 
     background-image:
         linear-gradient(
-            rgba(0, 30, 70, 0.35),
-            rgba(0, 30, 70, 0.35)
+            rgba(0, 30, 70, 0.45),
+            rgba(0, 30, 70, 0.45)
         ),
-        url("images/nao hp1.jpg");
+        url("../images/nao hp1.jpg");
 
     background-size: cover;
     background-position: center;
@@ -74,28 +76,31 @@ header {
     justify-content: center;
     align-items: center;
 
+    color: var(--white);
     text-align: center;
-    color: white;
 
-    padding: 45px 20px;
+    padding: 50px 0 0;
 }
 
 header h1 {
-    margin: 0;
-
     font-size: clamp(28px, 5vw, 46px);
     font-weight: bold;
 
-    color: white;
+    color: var(--white);
 
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    margin: 20px;
+    padding: 0 15px;
+
+    text-shadow:
+        2px 2px 6px rgba(0, 0, 0, 0.7);
 }
 
 header p {
     font-size: 16px;
-    margin-top: 10px;
+    padding: 0 15px;
 
-    text-shadow: 1px 1px 4px black;
+    text-shadow:
+        1px 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 
@@ -106,39 +111,44 @@ header p {
 nav {
     width: 100%;
 
-    background: var(--main-color);
-
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 
-    gap: 5px;
-    padding: 10px 15px;
+    gap: 6px;
+    padding: 12px 15px;
 
-    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    margin-top: auto;
+
+    background-color: rgba(0, 51, 102, 0.95);
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.2);
 }
 
-nav a {
+nav a,
+nav a:visited {
     display: inline-block;
 
-    color: white;
+    color: var(--white);
     text-decoration: none;
 
     font-size: 15px;
     font-weight: bold;
 
-    padding: 10px 18px;
-
+    padding: 9px 16px;
     border-radius: 6px;
 
     transition:
-        background-color 0.25s,
-        transform 0.25s;
+        background-color 0.25s ease,
+        transform 0.25s ease;
 }
 
-nav a:hover {
-    background-color: var(--accent-color);
+nav a:hover,
+nav a:focus-visible {
+    background-color: var(--sub-color);
+    color: var(--white);
 
     transform: translateY(-2px);
 }
@@ -149,18 +159,21 @@ nav a:hover {
 ========================================== */
 
 main {
-    width: 92%;
-    max-width: 1100px;
+    width: min(92%, 1050px);
 
     margin: 35px auto;
-    padding: 35px;
+    padding: 40px;
 
-    background-color: rgba(255,255,255,0.97);
+    background-color: rgba(255, 255, 255, 0.97);
 
     border-radius: 14px;
 
     box-shadow:
-        0 5px 25px rgba(0,0,0,0.12);
+        0 5px 25px rgba(0, 0, 0, 0.12);
+}
+
+main > :first-child {
+    margin-top: 0;
 }
 
 
@@ -168,43 +181,54 @@ main {
    5. 見出し
 ========================================== */
 
-h1, h2, h3 {
-    line-height: 1.4;
+h1,
+h2,
+h3 {
+    line-height: 1.5;
 }
 
 h2 {
     color: var(--main-color);
-
     font-size: 26px;
 
-    border-left: 6px solid var(--accent-color);
+    border-left:
+        6px solid var(--accent-color);
 
     padding-left: 15px;
 
-    margin-top: 40px;
+    margin-top: 35px;
     margin-bottom: 20px;
 }
 
 h3 {
     color: var(--sub-color);
-
     font-size: 20px;
 
     margin-top: 25px;
+    margin-bottom: 15px;
 }
 
 
 /* ==========================================
-   6. 本文
+   6. 本文・記事
 ========================================== */
 
 p {
-    margin-top: 12px;
-    margin-bottom: 18px;
+    margin: 12px 0 18px;
 }
 
-section {
+section,
+article {
     margin-bottom: 35px;
+}
+
+article {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dce5ed;
+}
+
+article:last-child {
+    border-bottom: none;
 }
 
 
@@ -221,21 +245,27 @@ img {
     margin: 20px auto;
 
     border-radius: 10px;
+
+    transition: opacity 0.3s ease;
 }
 
-/* メイン画像用 */
+img:hover {
+    opacity: 0.96;
+}
+
+/* 本文内の大きな画像 */
+main > img {
+    max-height: 420px;
+    object-fit: contain;
+}
+
+/* 横長のメイン画像 */
 .hero-image {
     width: 100%;
     max-height: 420px;
 
     object-fit: cover;
     object-position: center;
-}
-
-/* 画像のマウスオーバー */
-img:hover {
-    opacity: 0.96;
-    transition: opacity 0.3s;
 }
 
 
@@ -245,11 +275,17 @@ img:hover {
 
 a {
     color: var(--sub-color);
-    transition: 0.2s;
+
+    transition: color 0.2s ease;
 }
 
 a:hover {
     color: var(--accent-color);
+}
+
+a:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
 }
 
 
@@ -262,11 +298,10 @@ footer {
 
     background-color: var(--main-color);
 
-    color: white;
+    color: var(--white);
     text-align: center;
 
     padding: 25px 15px;
-
     margin-top: 40px;
 }
 
@@ -274,9 +309,37 @@ footer p {
     margin: 5px;
 }
 
+footer a,
+footer a:visited {
+    color: var(--white);
+}
+
 
 /* ==========================================
-   10. スマートフォン対応
+   10. タブレット対応
+========================================== */
+
+@media (max-width: 900px) {
+
+    main {
+        width: 94%;
+        padding: 28px;
+    }
+
+    header {
+        min-height: 240px;
+    }
+
+    nav a {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+}
+
+
+/* ==========================================
+   11. スマートフォン対応
 ========================================== */
 
 @media (max-width: 600px) {
@@ -287,23 +350,30 @@ footer p {
 
     header {
         min-height: 200px;
-        padding: 35px 15px;
+        padding-top: 30px;
+    }
+
+    header h1 {
+        font-size: 28px;
     }
 
     nav {
-        gap: 3px;
-        padding: 8px;
+        gap: 4px;
+        padding: 10px 6px;
     }
 
     nav a {
         font-size: 13px;
-        padding: 8px 10px;
+        padding: 7px 9px;
     }
 
     main {
         width: 94%;
+
         padding: 20px 16px;
         margin: 20px auto;
+
+        border-radius: 10px;
     }
 
     h2 {
@@ -319,4 +389,29 @@ footer p {
         max-height: 250px;
     }
 
+    footer {
+        padding: 20px 12px;
+    }
+
 }
+
+
+/* ==========================================
+   12. 動きを減らす設定への対応
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+
+}
+
