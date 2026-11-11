@@ -429,3 +429,96 @@ footer a:visited {
 
     margin: 20px auto 30px;
 }
+
+/* ==========================================
+   13. ブログ記事専用デザイン
+========================================== */
+
+/* ブログ記事全体 */
+.blog-article {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 10px 0 30px;
+    line-height: 2;
+}
+
+/* ブログ記事のタイトル */
+.blog-article h1 {
+    color: var(--main-color);
+    font-size: clamp(26px, 4vw, 36px);
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 15px;
+    margin-bottom: 12px;
+}
+
+/* 投稿日 */
+.blog-date {
+    color: #666666;
+    font-size: 14px;
+    margin-bottom: 35px;
+}
+
+/* 記事内の見出し */
+.blog-article h2 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+/* 記事本文 */
+.blog-article p {
+    margin: 18px 0;
+    line-height: 2;
+}
+
+/* 記事内の画像 */
+.blog-article img {
+    max-width: 100%;
+    height: auto;
+    margin: 30px auto;
+    border-radius: 10px;
+}
+
+/* 記事の区切り線 */
+.blog-article hr {
+    border: none;
+    border-top: 1px solid #dce5ed;
+    margin: 35px 0;
+}
+
+/* ブログ一覧へのリンク */
+.blog-back {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 10px 20px;
+    background-color: var(--main-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.blog-back:visited {
+    color: white;
+}
+
+.blog-back:hover {
+    background-color: var(--sub-color);
+    color: white;
+}
+
+/* スマートフォン対応 */
+@media (max-width: 600px) {
+
+    .blog-article {
+        padding: 0 0 20px;
+    }
+
+    .blog-article h1 {
+        font-size: 25px;
+    }
+
+    .blog-article p {
+        line-height: 1.9;
+    }
+
+}
+

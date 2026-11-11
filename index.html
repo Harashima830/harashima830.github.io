@@ -1,9 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>私のホームページ</title>
 
     <link rel="stylesheet" href="css/style.css">
@@ -11,49 +14,76 @@
 
 <body>
 
-<header>
-    <h1>私のホームページ</h1>
+    <!-- ヘッダー -->
+    <header>
+        <h1>私のホームページ</h1>
 
-    <nav>
-        <a href="#">ホーム</a>
-        <a href="profile.html">プロフィール</a>
-        <a href="research.html">研究紹介</a>
-        <a href="contact.html">趣味・近況</a>
-        <a href="blog.html">私のブログ</a>
-        <a href="bunsai.html">文化の祭典について</a>
-    </nav>
-</header>
+        <nav>
+            <a href="index.html">ホーム</a>
+            <a href="profile.html">プロフィール</a>
+            <a href="research.html">研究紹介</a>
+            <a href="contact.html">趣味・近況</a>
+            <a href="blog.html">私のブログ</a>
+            <a href="bunsai.html">文化の祭典について</a>
+        </nav>
+    </header>
 
-<main>
+    <!-- メインコンテンツ -->
+    <main>
 
-    <h2>ようこそ！</h2>
+        <h2>ようこそ！</h2>
 
-    <img src="images/nao hp1.jpg"
-     alt="ホームページの紹介画像"
-     class="welcome-image">
-
-    <p>
-        このホームページはHTMLとCSSだけで作成しています。
-    </p>
-
-    <h3>ページの紹介</h3>
-
-    <p>
-        ここでは、私のブログ、研究紹介、趣味などについて話して行こうと考えています。
-    </p>
- 
-    <h4>ブログ</h4>
+        <img src="images/nao hp1.jpg"
+             alt="ホームページの紹介画像"
+             class="welcome-image">
 
         <p>
-            初めての自作ホームページ 2026年11月10日
-            htmlをいじった感想と今後について
-            <a href="blog.html">続きを読む</a>
+            このホームページはHTMLとCSSだけで作成しています。
         </p>
-        
-</footer>
-<p>© 2026 My Home Page 
-    X（旧Twitter）@nazo12536
-</p>
-</body>
 
+        <h3>ページの紹介</h3>
+
+        <p>
+            ここでは、私のブログ、研究紹介、趣味などについて
+            話していこうと考えています。
+        </p>
+
+        <!-- ブログ紹介 -->
+        <section class="blog-section">
+
+            <h2>ブログ</h2>
+
+            <article>
+                <h3>初めての自作ホームページ</h3>
+
+                <p class="blog-date">
+                    2026年11月10日
+                </p>
+
+                <p>
+                    HTMLをいじった感想と今後について
+                </p>
+
+                <a href="blog/blog1.html">
+                    続きを読む
+                </a>
+            </article>
+
+            <p>
+                <a href="blog.html">
+                    ブログ一覧を見る
+                </a>
+            </p>
+
+        </section>
+
+    </main>
+
+    <!-- フッター -->
+    <footer>
+        <p>© 2026 My Home Page</p>
+        <p>X（旧Twitter）@nazo12536</p>
+    </footer>
+
+</body>
 </html>
