@@ -1,89 +1,68 @@
 
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>初めてのブログ | ナオのHP</title>
+    <title>１個目～めっき処理後の表面特性分析器～ | ナオのHP</title>
 
-    <!-- 共通CSS -->
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
 
-    <!-- ヘッダー -->
-    <header>
-        <h1>ナオのHP</h1>
-        <p>日常・研究・趣味の記録</p>
+<header>
+    <h1>私のホームページ</h1>
 
-        <!-- ナビゲーション -->
-        <nav>
-            <a href="../index.html">ホーム</a>
-            <a href="../profile.html">プロフィール</a>
-            <a href="../research.html">研究</a>
-            <a href="../contact.html">お問い合わせ</a>
-        </nav>
-    </header>
+    <nav>
+        <a href="../index.html">ホーム</a>
+        <a href="../profile.html">プロフィール</a>
+        <a href="../research.html">研究紹介</a>
+        <a href="../contact.html">趣味・近況</a>
+        <a href="../blog.html">私のブログ</a>
+        <a href="../bunsai.html">文化の祭典について</a>
+    </nav>
+</header>
 
-    <!-- メインコンテンツ -->
-    <main>
+<main>
+    <article class="blog-article">
 
-        <article class="blog-article">
+        <h1>１個目～めっき処理後の表面特性分析器～</h1>
 
-            <h1>初めてのブログ</h1>
+        <p class="blog-date">
+            投稿日：2026-11-12
+        </p>
 
-            <p class="blog-date">
-                投稿日：2026年11月11日
-            </p>
+        <p>「無知な人間の考えた専門装置」とは、その分野に対してあまり専門知識のない筆者が、
+独自の思い付きと考察でいろいろな装置を考案していくものです。
+記念すべき一個目の装置は、「めっき処理後の表面特性分析器」です。
+これを考えるきっかけとなったのが、現電気研究部部長のこのツイート⇓</p>
+<p><img alt="図1" src="../images/1_1.png" /></p>
+<p>このツイートを目にした瞬間、筆者の脳内に閃きが走った！
+「電気抵抗を測れば行けるんじゃね？」と</p>
+<p>筆者の個人的な考えでは、電流とは一般に電気の流れやすい物質がある方向により多く流れる。
+一様に胴体が分布していれば電流は放射状に流れるはずである（本当かどうかは知らないが…）。</p>
+<p><img alt="図2" src="../images/1_2.png" /></p>
+<p>また、電気抵抗というものは、当然、母材とメッキ材では異なっているはずなので、一定の距離における電気抵抗を複数の箇所調べれば、ある程度のメッキ厚が分かるはずである。
+つまり、次ページのような装置で同心円状に広がる電流の抵抗値を測ることで、メッキ厚からメッキの表面特性も分かると考える。</p>
+<p><img alt="図3" src="../images/1_3.png" /></p>
+<p>中央に電極があり、同心円状にもう一つの電極がある。
+もう一つの電極を図2のように等間隔同心円状に配置し、電極間の距離と抵抗値から表面特性を算出する。</p>
+<p>筆者は、実際にこのような装置があるのかは知らない。機械工学科で液浸冷却を研究する身にあっては、恐らくこのような測定を行う日は来ないかと思われるが、「めっき」は機械工学、電気電子工学、材料工学、応用化学など広く一般に使われている技術であり、些細な事柄でも少しは考えを深めておくことも重要と考える。</p>
 
-            <p>
-                こんにちは！<br>
-                今回から、自分のホームページで
-                ブログを始めます。
-            </p>
+    </article>
 
-            <h2>今日の出来事</h2>
+    <a href="../blog.html" class="blog-back">
+        ブログ一覧に戻る
+    </a>
+</main>
 
-            <p>
-                今日はVS Codeを使ってMarkdown
-                ファイルを作成しました。
-            </p>
-
-            <p>
-                MarkdownならHTMLよりも簡単に
-                文章を記述できます。
-            </p>
-
-            <h2>今後の予定</h2>
-
-            <ul>
-                <li>日常生活について</li>
-                <li>大学での研究活動</li>
-                <li>旅行の記録</li>
-                <li>趣味や工作について</li>
-            </ul>
-
-            <p>
-                これから少しずつ更新していきます！
-            </p>
-
-        </article>
-
-        <!-- トップページへ戻る -->
-        <a href="../index.html" class="blog-back">
-            トップページに戻る
-        </a>
-
-    </main>
-
-    <!-- フッター -->
-    <footer>
-        <p>&copy; 2026 ナオのHP</p>
-    </footer>
+<footer>
+    <p>© 2026 My Home Page</p>
+    <p>作成者：原島</p>
+</footer>
 
 </body>
 </html>
