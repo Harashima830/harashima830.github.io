@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -7,6 +8,7 @@
     <title>ブログ一覧 | ナオのHP</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 <header>
     <h1>ナオのHP</h1>
@@ -18,23 +20,61 @@
         <a href="blog.html">ブログ</a>
     </nav>
 </header>
+
 <main class="blog-article">
-<h1>ブログ一覧</h1>
-<article>
-    <h2>１個目～めっき処理後の表面特性分析器～</h2>
-    <p class="blog-date">2026-11-12</p>
-    <a href="blog/blog2.html">続きを読む</a>
-</article>
+    <h1>ブログ一覧</h1>
 
-<article>
-    <h2>初めての自作ホームページ</h2>
-    <p class="blog-date">2026-11-10</p>
-    <a href="blog/blog1.html">続きを読む</a>
-</article>
-
+    <div id="blog-list"></div>
 </main>
+
 <footer>
     <p>© 2026 ナオのHP</p>
 </footer>
+
+<script>
+    // ブログ記事の登録
+    const posts = [
+        {
+            title: "初めての自作ホームページ",
+            date: "2026-11-10",
+            url: "blog/blog1.html"
+        },
+        {
+            title: "１個目～めっき処理後の表面特性分析器～",
+            date: "2026-11-12",
+            url: "blog/blog2.html"
+        }
+    ];
+
+    // 古い記事から新しい記事へ並び替え
+    posts.sort((a, b) =>
+        a.date.localeCompare(b.date)
+    );
+
+    // ブログ一覧を生成
+    const blogList = document.getElementById("blog-list");
+
+    posts.forEach(post => {
+        const article = document.createElement("article");
+
+        const title = document.createElement("h2");
+        title.textContent = post.title;
+
+        const date = document.createElement("p");
+        date.className = "blog-date";
+        date.textContent = post.date;
+
+        const link = document.createElement("a");
+        link.href = post.url;
+        link.textContent = "続きを読む";
+
+        article.appendChild(title);
+        article.appendChild(date);
+        article.appendChild(link);
+
+        blogList.appendChild(article);
+    });
+</script>
+
 </body>
 </html>
