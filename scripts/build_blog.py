@@ -73,9 +73,34 @@ for md_file in sorted(POSTS.glob('*.md')):
     title, date, category, body = read_post(md_file)
     rendered = markdown.markdown(body, extensions=['extra', 'tables', 'fenced_code'])
     output = BLOG / (md_file.stem + '.html')
+   
+    # 記事ごとのコメント・返信機能（giscus）
+    comments_html = '''
+<h2>コメント・感想</h2>
+<p>記事へのご意見・ご感想をお待ちしています！</p>
+
+<script src="https://giscus.app/client.js"
+        data-repo="Harashima830/harashima830.github.io"
+        data-repo-id="R_kgD0TLTCMQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwD0TLTCMc4DLxDN"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="ja"
+        crossorigin="anonymous"
+        async>
+</script>
+'''
+
+    # 記事本文の下にコメント欄を追加
     article_html = (TEMPLATE.replace('{{TITLE}}', escape(title))
                     .replace('{{DATE}}', escape(date))
-                    .replace('{{CONTENT}}', rendered))
+                    .replace('{{CONTENT}}', rendered + comments_html))
+
     output.write_text(article_html, encoding='utf-8')
     posts.append({'title': title, 'date': date, 'category': category, 'filename': output.name})
 
