@@ -98,8 +98,10 @@ for md_file in POSTS.glob("*.md"):
 
     articles.append((date, title, output.name))
 
-# 日付の新しい順に並べる
-articles.sort(reverse=True)
+
+# 日付の古い順に並べる
+articles.sort(key=lambda article: article[0])
+
 
 list_content = "<h1>ブログ一覧</h1>"
 
