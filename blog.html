@@ -2,8 +2,12 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブログ一覧 | ナオのHP</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ブログ一覧 | ナオのHP</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -20,33 +24,63 @@
 </header>
 <main class="blog-article">
 <h1>ブログ一覧</h1>
-<article>
+<h2>カテゴリー別ページ</h2>
+<p><a href="#all-posts">すべての記事</a> | <a href="categories/cat-e5ada6e7a5ade383bbe69687e58c96.html">学祭・文化（1件）</a> | <a href="categories/cat-e69caae58886e9a19e.html">未分類（1件）</a> | <a href="categories/cat-e7a094e7a9b6e383bbe68a80e8a193.html">研究・技術（2件）</a></p>
+<h2 id="all-posts">記事を絞り込む</h2>
+<div id="category-filters"><button type="button" data-filter="__all__">すべて</button> <button type="button" data-filter="学祭・文化">学祭・文化</button> <button type="button" data-filter="未分類">未分類</button> <button type="button" data-filter="研究・技術">研究・技術</button></div>
+<p id="filter-count" aria-live="polite"></p>
+<div id="all-articles">
+<article data-category="未分類">
     <h2>初めての自作ホームページ</h2>
     <p class="blog-date">2026-11-10</p>
+    <p>カテゴリー：未分類</p>
     <a href="blog/blog1.html">続きを読む</a>
 </article>
-
-<article>
-    <h2>blog4</h2>
-    <p class="blog-date">2026-11-11</p>
-    <a href="blog/blog4.html">続きを読む</a>
-</article>
-
-<article>
+<article data-category="研究・技術">
     <h2>１個目～めっき処理後の表面特性分析器～</h2>
     <p class="blog-date">2026-11-12</p>
+    <p>カテゴリー：研究・技術</p>
     <a href="blog/blog2.html">続きを読む</a>
 </article>
-
-<article>
+<article data-category="研究・技術">
     <h2>2個目～圧電ソックス～</h2>
     <p class="blog-date">2026-11-17</p>
+    <p>カテゴリー：研究・技術</p>
     <a href="blog/blog3.html">続きを読む</a>
 </article>
-
+<article data-category="学祭・文化">
+    <h2>１章：１１月祭</h2>
+    <p class="blog-date">2026-11-23</p>
+    <p>カテゴリー：学祭・文化</p>
+    <a href="blog/blog4.html">続きを読む</a>
+</article>
+</div>
+<script>
+(function () {
+    const buttons = document.querySelectorAll('#category-filters button');
+    const articles = document.querySelectorAll('#all-articles article');
+    const counter = document.getElementById('filter-count');
+    function filter(category) {
+        let count = 0;
+        articles.forEach(article => {
+            const show = category === '__all__' || article.dataset.category === category;
+            article.hidden = !show;
+            if (show) count++;
+        });
+        buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === category)));
+        counter.textContent = count + '件の記事';
+    }
+    buttons.forEach(button => button.addEventListener('click', () => filter(button.dataset.filter)));
+    filter('__all__');
+})();
+</script>
+<style>
+#category-filters { display:flex; flex-wrap:wrap; gap:0.5rem; margin:1rem 0; }
+#category-filters button { padding:0.45rem 0.8rem; cursor:pointer; border:1px solid #1679b9; border-radius:6px; background:white; color:#064274; }
+#category-filters button[aria-pressed="true"] { background:#064274; color:white; }
+#all-articles article[hidden] { display:none !important; }
+</style>
 </main>
-<footer>
-    <p>© 2026 ナオのHP</p>
-</footer>
+<footer><p>© 2026 ナオのHP</p></footer>
 </body>
 </html>
